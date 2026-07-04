@@ -1,0 +1,10 @@
+.venv/
+.idea/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+*.pyc
+/src/helper_one.py
+/.coverage
+/src/helper.py
+/htmlcov/
