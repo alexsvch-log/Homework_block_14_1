@@ -1,31 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Homework_block_14_1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htmlcov/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lint.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/readers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_readers.py" afterDir="false" />
+    <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="The first version of online store">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +18,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "alexsvch-log"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/alexsvch-log/Homework_block_14_1.git",
+    "accountId": "9e7d6570-e782-492d-bbe9-32a499c8d9d2"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -50,30 +45,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests for tests.test_category.test_category_counters.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_category.test_category_init.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_product.test_product_init.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_success.executor&quot;: &quot;Run&quot;,
-    &quot;Python.helper.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for tests.test_category.test_category_counters.executor": "Run",
+    "Python tests.Python tests for tests.test_category.test_category_init.executor": "Run",
+    "Python tests.Python tests for tests.test_product.test_product_init.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor": "Run",
+    "Python tests.Python tests for tests.test_readers.test_reader_json_success.executor": "Run",
+    "Python.helper.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/homework__14__1",
+    "ignore.virus.scanning.warn.message": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\777\Desktop\Homework_block_14_1\src" />
@@ -192,6 +187,15 @@
       <option name="presentableId" value="Default" />
       <updated>1782797911241</updated>
     </task>
+    <task id="LOCAL-00001" summary="The first version of online store">
+      <option name="closed" value="true" />
+      <created>1783152050582</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783152050582</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,5 +208,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="The first version of online store" />
+    <option name="LAST_COMMIT_MESSAGE" value="The first version of online store" />
   </component>
 </project>
