@@ -4,13 +4,6 @@
     <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="The first version of online store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlcov/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_readers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_readers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783152050582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="The version_14_2 of online store&#10;Intermediate technical commit">
+      <option name="closed" value="true" />
+      <created>1783235485968</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783235485968</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,6 +227,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="The first version of online store" />
-    <option name="LAST_COMMIT_MESSAGE" value="The first version of online store" />
+    <MESSAGE value="The version_14_2 of online store&#10;Intermediate technical commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="The version_14_2 of online store&#10;Intermediate technical commit" />
   </component>
 </project>

@@ -109,33 +109,37 @@ from src.readers import create_objects_from_json
 
 if __name__ == "__main__":
     # --- ЧАСТЬ 1: Исходный код задания. Реализация работы с приватным атрибутом Category.products. ---
+    # Создание исходных продуктов
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
-    # ... (создание category1) ...
+    # Инициализация категории товаров
+    category1 = Category("Смартфоны", "Описание категории...", [product1, product2, product3])
 
+    # Проверка работы геттера продуктов (вывод в определенном формате)
     print(category1.products)
-    
-    # ... (создание product4 и добавление в список products) ...
-    
+
+    # Добавление нового продукта в категорию
+    product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    category1.add_product(product4)
     print(category1.products)
-    print(category1.product_count) 
+    print({category1.product_count})
+
+    # Создание товара через фабричный класс-метод из словаря
+    new_product = Product.new_product(
+        {
+            "name": "Samsung Galaxy S23 Ultra",
+            "description": "256GB, Серый цвет...",
+            "price": 180000.0,
+            "quantity": 5,
+        }
+    )
     
-    # ... (создание new_product и добавление в список products) ...    
-
-    print(new_product.name)
-    print(new_product.description)
-    print(new_product.price)
-    print(new_product.quantity)
-
-    new_product.price = 800
-    print(new_product.price)
-
-    new_product.price = -100
-    print(new_product.price)
-    new_product.price = 0
-    print(new_product.price)
+    # Проверка работы сеттера цены (валидация на понижение и отрицательные значения)
+    new_product.price = 800  # Вызовет интерактивное подтверждение в консоли
+    new_product.price = -100 # Выведет ошибку валидации
+    new_product.price = 0    # Выведет ошибку валидации
 
     # --- ЧАСТЬ 2: Бонусное задание. Загрузка данных о товарах и категориях из файла JSON и проверка счетчиков. ---
     print("--- Загрузка данных из JSON ---")
@@ -153,12 +157,36 @@ if __name__ == "__main__":
 
     # Выводим результат загрузки
     for cat in loaded_categories:
-        print(f"Категория: {cat.name} ({len(cat.products)} шт. товаров)")
-        print(f"Товары: {cat.products}")
-
-    # Печатаем автоматический итог напрямую из класса Category
+        product_count_in_cat = cat.products.count("\n") + 1 if cat.products else 0
+        print(f"Категория: {cat.name} ({product_count_in_cat} шт. товаров)")
+        print(f"Товары:\n{cat.products}")
     print(f"\n Итог из JSON: Категорий - {Category.category_count}, Товаров - {Category.product_count}")
 ```
+
+### Ожидаемый вывод в консоли для части 1
+
+```text
+Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
+Iphone 15, 210000 руб. Остаток: 8 шт.
+Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
+Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
+Iphone 15, 210000 руб. Остаток: 8 шт.
+Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
+55" QLED 4K, 123000 руб. Остаток: 7 шт.
+4
+Samsung Galaxy S23 Ultra
+256GB, Серый цвет, 200MP камера
+180000.0
+5
+Вы уверены, что хотите снизить цену с 180000.0 до 800? (y/n): n
+Действие отменено. Цена осталась прежней.
+180000.0
+Цена не должна быть нулевой или отрицательной
+180000.0
+Цена не должна быть нулевой или отрицательной
+180000.0
+```
+
 ## Логгирование (logging)
 **В разработке**
 
