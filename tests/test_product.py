@@ -1,5 +1,7 @@
 from unittest.mock import patch
 
+import pytest
+
 from src.models import Product
 
 
@@ -118,3 +120,32 @@ def test_new_product_no_duplicate(sample_product: Product) -> None:
     # Старый товар в списке должен остаться нетронутым
     assert sample_product.quantity == 10
     assert sample_product.price == 1000.0
+
+
+def test_product_str(sample_product: Product) -> None:
+    """Проверка красивого строкового отображения продукта."""
+    # sample_product: "Тестовый телефон", цена 1000.0, остаток 10
+    assert str(sample_product) == "Тестовый телефон, 1000 руб. Остаток: 10 шт."
+
+
+def test_product_add(sample_product: Product) -> None:
+    """Проверка сложения полной стоимости двух продуктов на складе."""
+    # Первый товар (из фикстуры): 1000.0 * 10 = 10000.0
+    # Создаем второй товар: 5000.0 * 2 = 10000.0
+    second_product = Product("Второй телефон", "Описание", 5000.0, 2)
+
+    # Складываем их стоимости
+    total_cost = sample_product + second_product
+
+    # Итоговая стоимость должна быть 20000.0
+    assert total_cost == 20000.0
+
+
+def test_product_add_type_error(sample_product: Product) -> None:
+    """Проверка защиты: нельзя складывать продукт с другими типами данных."""
+    with pytest.raises(TypeError):
+        # Пытаемся прибавить к продукту обычное число
+        _ = sample_product + 42  # type: ignore
+        # Запись вида _ = (нижнее подчёркивание равно) в Python — это общепринятый способ сказать интерпретатору
+        # и линтерам: «Мне нужно выполнить это действие, но сам результат вычисления мне не интересен и сохранять
+        # его в отдельную переменную не нужно».
