@@ -80,18 +80,22 @@ python main.py
 
 Детальное описание параметров доступно внутри docstrings каждого модуля. Краткая карта функций проекта:
 
-| Модуль              | Функция                    | Назначение                                                                                                       |
-|:--------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| **models.product**  | `Product`                  | Класс для представления конкретного товара и его характеристик (цена, остаток).                                  |
-| **models.product**  | `Product.__init__()`       | Инициализирует объект товара, заполняя его базовые свойства при создании.                                        |
-| **models.product**  | `Product.__repr__()`       | Магический метод. Возвращает понятное текстовое представление товара внутри списков.                             |
-| **models.category** | `Category`                 | Класс для представления категории, содержащий список входящих в неё товаров.                                     |
-| **models.category** | `Category.__init__()`      | Настраивает объект категории и автоматически запускает подсчет глобальных счетчиков.                             |
-| **models.category** | `Category.category_count`  | Переменная уровня класса. Счетчик общего количества созданных категорий в системе.                               |
-| **models.category** | `Category.product_count`   | Переменная уровня класса. Счетчик общего количества уникальных товаров во всех категориях.                       |
-| **readers**         | `reader_json`              | Безопасно считывает JSON-файл и возвращает его содержимое в исходном виде словаря.                               |
-| **readers**         | `create_objects_from_json` | Основная утилита. Парсит данные из `reader_json` и собирает их в готовые списки объектов `Category` и `Product`. |
-
+| Модуль              | Функция                        | Назначение                                                                                                        |
+|:--------------------|:-------------------------------|:------------------------------------------------------------------------------------------------------------------|
+| **models.product**  | `Product`                      | Класс для представления конкретного товара и его характеристик (цена, остаток).                                   |
+| **models.product**  | `Product.__init__()`           | Инициализирует объект товара, заполняя его базовые свойства при создании.                                         |
+| **models.product**  | `Product.new_product()`        | [Класс-метод] Создает товар из словаря с проверкой на дубликаты на складе.                                        |
+| **models.product**  | `Product.price (property)`     | [Геттер] Для безопасного чтения приватной цены снаружи (для реализации контроля цен).                             |
+| **models.product**  | `Product.price (setter)`       | [Сеттер] Для валидации цены и интерактивного подтверждения её снижения.                                           |
+| **models.product**  | `Product.__repr__()`           | [Магический метод] Возвращает понятное текстовое представление товара внутри списков.                             |
+| **models.category** | `Category`                     | Класс для представления категории, содержащий список входящих в неё товаров.                                      |
+| **models.category** | `Category.__init__()`          | Настраивает объект категории и автоматически запускает подсчет глобальных счетчиков.                              |
+| **models.category** | `Category.category_count`      | Переменная уровня класса. Счетчик общего количества созданных категорий в системе.                                |
+| **models.category** | `Category.product_count`       | Переменная уровня класса. Счетчик общего количества уникальных товаров во всех категориях.                        |
+| **models.category** | `Category.add_product() `      | Добавляет один продукт в приватный список текущей категории                                                       |
+| **models.category** | `Category.products (property)` | [Геттер] Возвращает строку со всеми продуктами в приватном атрибуте products в виде строки определенного формата. |
+| **readers**         | `reader_json`                  | Безопасно считывает JSON-файл и возвращает его содержимое в исходном виде словаря.                                |
+| **readers**         | `create_objects_from_json`     | Основная утилита. Парсит данные из `reader_json` и собирает их в готовые списки объектов `Category` и `Product`.  |
 
 ### Пример запуска
 ## Пример использования в коде (`src/main.py`)
@@ -104,22 +108,34 @@ from src.models import Product, Category
 from src.readers import create_objects_from_json
 
 if __name__ == "__main__":
-    # --- ЧАСТЬ 1: Исходный код задания. Инициализация объектов и ручная проверка счетчиков классов. ---
+    # --- ЧАСТЬ 1: Исходный код задания. Реализация работы с приватным атрибутом Category.products. ---
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
-    print(product1.name)
-    print(product1.description)
-    print(product1.price)
-    print(product1.quantity)
+    # ... (создание category1) ...
 
-    # ... (вывод остальных продуктов и создание category1) ...
+    print(category1.products)
+    
+    # ... (создание product4 и добавление в список products) ...
+    
+    print(category1.products)
+    print(category1.product_count) 
+    
+    # ... (создание new_product и добавление в список products) ...    
 
-    print(Category.category_count)
-    print(Category.product_count)
+    print(new_product.name)
+    print(new_product.description)
+    print(new_product.price)
+    print(new_product.quantity)
 
-    print("\n" + "="*40 + "\n")
+    new_product.price = 800
+    print(new_product.price)
+
+    new_product.price = -100
+    print(new_product.price)
+    new_product.price = 0
+    print(new_product.price)
 
     # --- ЧАСТЬ 2: Бонусное задание. Загрузка данных о товарах и категориях из файла JSON и проверка счетчиков. ---
     print("--- Загрузка данных из JSON ---")
