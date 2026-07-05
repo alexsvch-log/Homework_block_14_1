@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="The first version of online store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,23 +20,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/homework_14_1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "alexsvch-log"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alexsvch-log&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/alexsvch-log/Homework_block_14_1.git",
-    "accountId": "9e7d6570-e782-492d-bbe9-32a499c8d9d2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/alexsvch-log/Homework_block_14_1.git&quot;,
+    &quot;accountId&quot;: &quot;9e7d6570-e782-492d-bbe9-32a499c8d9d2&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -45,36 +45,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.test_category.test_category_counters.executor": "Run",
-    "Python tests.Python tests for tests.test_category.test_category_init.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_init.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_success.executor": "Run",
-    "Python.helper.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/homework__14__1",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_add_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_counters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_new_product_no_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_new_product_with_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_new_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_confirm.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_reject.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_negative.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_normal.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python.helper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/homework__14__2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\777\Desktop\Homework_block_14_1\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_product.test_product_init">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Homework_block_14_1" />
       <option name="ENV_FILES" value="" />
@@ -98,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.test_product.test_product_init" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_product.test_new_product_no_duplicate" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Homework_block_14_1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,11 +118,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_product.test_product_init&quot;" />
+      <option name="_new_target" value="&quot;tests.test_product.test_new_product_no_duplicate&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.test_readers.test_create_objects_from_json_empty_dict" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.test_product.test_new_product_with_duplicate" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Homework_block_14_1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,23 +134,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_readers.test_create_objects_from_json_empty_dict&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.test_readers.test_create_objects_from_json_not_dict" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Homework_block_14_1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.test_readers.test_create_objects_from_json_not_dict&quot;" />
+      <option name="_new_target" value="&quot;tests.test_product.test_new_product_with_duplicate&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -162,12 +154,28 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.test_readers.test_create_objects_from_json_with_list" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Homework_block_14_1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_readers.test_create_objects_from_json_with_list&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for tests.test_product.test_product_init" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict" />
-        <item itemvalue="Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict" />
+        <item itemvalue="Python tests.Python tests for tests.test_product.test_new_product_no_duplicate" />
+        <item itemvalue="Python tests.Python tests for tests.test_product.test_new_product_with_duplicate" />
+        <item itemvalue="Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list" />
         <item itemvalue="Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict" />
       </list>
     </recent_temporary>
@@ -195,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783152050582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="The version_14_2 of online store&#10;Intermediate technical commit">
+      <option name="closed" value="true" />
+      <created>1783235485968</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783235485968</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +227,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="The first version of online store" />
-    <option name="LAST_COMMIT_MESSAGE" value="The first version of online store" />
+    <MESSAGE value="The version_14_2 of online store&#10;Intermediate technical commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="The version_14_2 of online store&#10;Intermediate technical commit" />
   </component>
 </project>
