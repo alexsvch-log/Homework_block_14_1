@@ -1,5 +1,6 @@
 from .category import Category
 from .product import Product
+from .product_iterator import ProductIterator
 
 """Пакет моделей для импорта категорий и продуктов.
 Позволяет в main.py или файлах тестов писать короткий импорт

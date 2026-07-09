@@ -59,9 +59,29 @@ class Product:
             self.__price = new_price
 
     # Добавляем магический метод отображения объекта в списках
-    def __repr__(self) -> str:  # значок показывает, что мы переписали встроенный метод Python
+    def __str__(self) -> str:  # значок показывает, что мы переписали встроенный метод Python
         # f-строка вернет красивый понятный текст вместо технической абракадабры
+        return f"{self.name}, {int(self.price)} руб. Остаток: {self.quantity} шт."
+
+    def __repr__(self) -> str:
+        """Техническое отображение товара для отладки и тестов."""
         return f"Product(name='{self.name}', price={self.price}, quantity={self.quantity})"
+
+    def __add__(self, other: "Product") -> float:
+        """Магический метод для сложения двух товаров.
+        Возвращает общую стоимость товаров на складе.
+        """
+        # Проверяем, что объект справа — это тоже продукт
+        if not isinstance(other, Product):
+            raise TypeError("Складывать можно только объекты класса Product")
+
+        # Считаем стоимость левого товара (self)
+        self_total_price = self.price * self.quantity
+        # Считаем стоимость правого товара (other)
+        other_total_price = other.price * other.quantity
+
+        # Возвращаем их сумму
+        return self_total_price + other_total_price
 
     # def to_list(self):
     #     # Вот этот метод уже вернет тип данных list

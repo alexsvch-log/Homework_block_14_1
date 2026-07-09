@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.models import Category, Product
+from src.models import Category, Product, ProductIterator
 from src.readers import create_objects_from_json
 
 # 1. Задаем путь к папке data в корне проекта, где лежит файл с данными
@@ -14,11 +14,38 @@ if __name__ == "__main__":
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
+    # Блок из задания 15.1
+    # -----------------------------------
+    print(str(product1))
+    print(str(product2))
+    print(str(product3))
+    # -----------------------------------
+
     category1 = Category(
         "Смартфоны",
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         [product1, product2, product3],
     )
+
+    # Блок из задания 15.1
+    # -----------------------------------
+    print(str(category1))
+
+    print(category1.products)
+
+    print(product1 + product2)
+    print(product1 + product3)
+    print(product2 + product3)
+    # -----------------------------------
+
+    # Блок из задания 15.2 (Итератор)
+    # -----------------------------------
+    print("\n--- Проверка итератора товаров ---")
+    iterator = ProductIterator(category1)
+
+    for prod in iterator:
+        print(f"Товар из итератора: {prod.name}, цена: {prod.price} руб.")
+    # -----------------------------------
 
     print(category1.products)
     product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)

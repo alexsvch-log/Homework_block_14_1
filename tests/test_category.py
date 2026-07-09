@@ -26,3 +26,9 @@ def test_category_add_product(sample_category: Category) -> None:
     assert Category.product_count == 2
     # Проверяем, что новый товар появился в строке вывода геттера products
     assert "Планшет, 15000 руб. Остаток: 5 шт." in sample_category.products
+
+
+def test_category_str(sample_category: Category) -> None:
+    """Проверка строкового отображения категории с подсчетом суммы штук товаров."""
+    # В sample_category лежит один товар в количестве 10 штук
+    assert str(sample_category) == "Электроника, количество продуктов: 10 шт."
