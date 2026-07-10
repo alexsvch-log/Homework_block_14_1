@@ -1,9 +1,10 @@
+from src.models.base_storage import BaseStorage
 from src.models.product import Product  # Импортируем Product для точной типизации
 
 
 # Типизация: Вверху класса мы описываем, что хранится внутри объекта.В скобках __init__ мы описываем,
 # что нужно передать на вход, чтобы этот объект построить.
-class Category:
+class Category(BaseStorage):
     """Класс Category для представления категории, содержащий список входящих в неё товаров."""
 
     category_count: int = 0
@@ -13,6 +14,7 @@ class Category:
     description: str  # описание
 
     def __init__(self, name: str, description: str, products: list[Product]) -> None:
+        super().__init__(name)  # Передаем имя в абстрактного родителя
         self.name = name
         self.description = description
         self.__products = products  # Это список объектов Product

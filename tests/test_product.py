@@ -23,7 +23,7 @@ def test_product_init(sample_product: Product) -> None:
     # Как можно исправить:
     # Вариант 1. Проверить текстовое представление (Самый простой путь, что и делаем).
     # Вариант 2. Научить Python сравнивать объекты через __eq__.
-    assert repr(sample_product) == "Product(name='Тестовый телефон', price=1000.0, quantity=10)"
+    assert repr(sample_product) == "'Тестовый телефон', 'Описание', 1000.0, 10"
 
     # Если добавить его в src/models/product.py:python    def __eq__(self, other):
     #         if not isinstance(other, Product):
@@ -164,3 +164,16 @@ def test_products_add_strict_types() -> None:
     with pytest.raises(TypeError):
         # Используем # type: ignore, чтобы mypy не ругался на заведомо неверный тип в тесте
         _ = phone1 + grass  # type: ignore
+
+
+def test_product_print_mixin(capsys: pytest.CaptureFixture) -> None:
+    """Проверка, что при создании продукта миксин печатает лог в консоль."""
+    # Создаем товар
+    _ = Product("Тест Миксина", "Описание", 100.0, 2)
+
+    # Перехватываем вывод в консоль
+    captured = capsys.readouterr()
+
+    # Проверяем, что в консоль вывелась техническая инфо о создании товара
+    assert "Product" in captured.out
+    assert "Тест Миксина" in captured.out
