@@ -80,42 +80,123 @@ python main.py
 
 Детальное описание параметров доступно внутри docstrings каждого модуля. Краткая карта функций проекта:
 
-| Модуль                      | Функция / Атрибут              | Назначение                                                                                                       |
-|:----------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| **models.category**         | `Category`                     | Класс для представления категории, содержащий список входящих в неё товаров.                                     |
-| **models.category**         | `Category.__init__()`          | Настраивает объект категории и автоматически запускает подсчет глобальных счетчиков.                             |
-| **models.category**         | `Category.category_count`      | Переменная уровня класса. Счетчик общего количества созданных категорий в системе.                               |
-| **models.category**         | `Category.product_count`       | Переменная уровня класса. Счетчик общего количества уникальных товаров во всех категориях.                       |
-| **models.category**         | `Category.add_product()`       | Добавляет один продукт в приватный список текущей категории.                                                     |
-| **models.category**         | `Category.get_products()`      | Возвращает неизменяемый кортеж объектов товаров для безопасной внешней итерации.                                 |
-| **models.category**         | `Category.products` (property) | **[Геттер]** Возвращает оптимизированную строку со всеми продуктами в определенном формате.                      |
-| **models.category**         | `Category.__str__()`           | **[Магический метод]** Возвращает строку с названием категории и суммой штук всех её товаров.                    |
-| **models.product**          | `Product`                      | Класс для представления конкретного товара и его характеристик (цена, остаток).                                  |
-| **models.product**          | `Product.__init__()`           | Инициализирует объект товара, заполняя его базовые свойства при создании.                                        |
-| **models.product**          | `Product.new_product()`        | **[Класс-метод]** Создает товар из словаря с проверкой на дубликаты на складе.                                   |
-| **models.product**          | `Product.price` (property)     | **[Геттер]** Для безопасного чтения приватной цены снаружи (для реализации контроля цен).                        |
-| **models.product**          | `Product.price` (setter)       | **[Сеттер]** Для валидации цены и интерактивного подтверждения её снижения.                                      |
-| **models.product**          | `Product.__repr__()`           | **[Магический метод]** Возвращает понятное техническое представление товара внутри списков.                      |
-| **models.product**          | `Product.__str__()`            | **[Магический метод]** Возвращает пользовательское строковое представление товара по шаблону ТЗ.                 |
-| **models.product**          | `Product.__add__()`            | **[Магический метод]** Складывает два товара, возвращая общую стоимость всех штук на складе.                     |
-| **models.product_iterator** | `ProductIterator`              | **[Вспомогательный класс]** Позволяет перебирать товары одной категории в цикле `for`.                           |
-| **models.product_iterator** | `ProductIterator.__init__()`   | Принимает объект категории и сохраняет защищенный кортеж товаров для перебора.                                   |
-| **models.product_iterator** | `ProductIterator.__iter__()`   | **[Магический метод]** Подготавливает и возвращает сам объект-итератор для цикла.                                |
-| **models.product_iterator** | `ProductIterator.__next__()`   | **[Магический метод]** Поочередно выдает очередной объект товара или останавливает цикл.                         |
-| **readers**                 | `reader_json`                  | Безопасно считывает JSON-файл и возвращает его содержимое в исходном виде словаря.                               |
-| **readers**                 | `create_objects_from_json`     | Основная утилита. Парсит данные из `reader_json` и собирает их в готовые списки объектов `Category` и `Product`. |
+| Модуль                      | Функция / Атрибут              | Назначение                                                                                                          |
+|:----------------------------|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------|
+| **models.category**         | `Category`                     | Класс для представления категории, содержащий список входящих в неё товаров.                                        |
+| **models.category**         | `Category.__init__()`          | Настраивает объект категории и автоматически запускает подсчет глобальных счетчиков.                                |
+| **models.category**         | `Category.category_count`      | Переменная уровня класса. Счетчик общего количества созданных категорий в системе.                                  |
+| **models.category**         | `Category.product_count`       | Переменная уровня класса. Счетчик общего количества уникальных товаров во всех категориях.                          |
+| **models.category**         | `Category.add_product()`       | Добавляет продукт в приватный список категории с **[Валидацией типа]** (разрешены только Product и его наследники). |
+| **models.category**         | `Category.get_products()`      | Возвращает неизменяемый кортеж объектов товаров для безопасной внешней итерации.                                    |
+| **models.category**         | `Category.products` (property) | **[Геттер]** Возвращает оптимизированную строку со всеми продуктами в определенном формате.                         |
+| **models.category**         | `Category.__str__()`           | **[Магический метод]** Возвращает строку с названием категории и суммой штук всех её товаров.                       |
+| **models.product**          | `Product`                      | Класс для представления конкретного товара и его характеристик (цена, остаток).                                     |
+| **models.product**          | `Product.__init__()`           | Инициализирует объект товара, заполняя его базовые свойства при создании.                                           |
+| **models.product**          | `Product.new_product()`        | **[Класс-метод]** Создает товар из словаря с проверкой на дубликаты на складе.                                      |
+| **models.product**          | `Product.price` (property)     | **[Геттер]** Для безопасного чтения приватной цены снаружи (для реализации контроля цен).                           |
+| **models.product**          | `Product.price` (setter)       | **[Сеттер]** Для валидации цены и интерактивного подтверждения её снижения.                                         |
+| **models.product**          | `Product.__repr__()`           | **[Магический метод]** Возвращает понятное техническое представление товара внутри списков.                         |
+| **models.product**          | `Product.__str__()`            | **[Магический метод]** Возвращает пользовательское строковое представление товара по шаблону ТЗ.                    |
+| **models.product**          | `Product.__add__()`            | **[Магический метод]** Складывает два товара **[Строго одного класса]**, возвращая общую стоимость на складе.       |
+| **models.product_iterator** | `ProductIterator`              | **[Вспомогательный класс]** Позволяет перебирать товары одной категории в цикле `for`.                              |
+| **models.product_iterator** | `ProductIterator.__init__()`   | Принимает объект категории и сохраняет защищенный кортеж товаров для перебора.                                      |
+| **models.product_iterator** | `ProductIterator.__iter__()`   | **[Магический метод]** Подготавливает и возвращает сам объект-итератор для цикла.                                   |
+| **models.product_iterator** | `ProductIterator.__next__()`   | **[Магический метод]** Поочередно выдает очередной объект товара или останавливает цикл.                            |
+| **models.smartphone**       | `Smartphone`                   | **[Класс-наследник]** Представление смартфона с уникальными свойствами (модель, память, цвет, производительность).  |
+| **models.lawn_grass**       | `LawnGrass`                    | **[Класс-наследник]** Представление газонной травы с уникальными свойствами (страна, цвет, срок прорастания).       |                            |                                |                                                                                                                  |
+| **readers**                 | `reader_json`                  | Безопасно считывает JSON-файл и возвращает его содержимое в исходном виде словаря.                                  |
+| **readers**                 | `create_objects_from_json`     | Основная утилита. Парсит данные из `reader_json` и собирает их в готовые списки объектов `Category` и `Product`.    |
 ### Пример запуска
 ## Пример использования в коде (`src/main.py`)
 
 Этот скрипт демонстрирует ручное создание номенклатуры и автоматическую потоковую загрузку данных из внешнего JSON-файла.
 
-```python
+```text
 from pathlib import Path
-from src.models import Product, Category, ProductIterator
+from src.models import Category, Product, ProductIterator, Smartphone, LawnGrass
 from src.readers import create_objects_from_json
 
 if __name__ == "__main__":
     # --- ЧАСТЬ 1: Исходный код задания. Реализация работы с приватным атрибутом Category.products. ---
+    # ---Реализация классов-наследников класса Product Smartphone и LawnGrass
+    
+    # Создание smartphone1, smartphone2, smartphone3
+    
+    print(smartphone1.name)
+    print(smartphone1.description)
+    print(smartphone1.price)
+    print(smartphone1.quantity)
+    print(smartphone1.efficiency)
+    print(smartphone1.model)
+    print(smartphone1.memory)
+    print(smartphone1.color)
+
+    print(smartphone2.name)
+    print(smartphone2.description)
+    print(smartphone2.price)
+    print(smartphone2.quantity)
+    print(smartphone2.efficiency)
+    print(smartphone2.model)
+    print(smartphone2.memory)
+    print(smartphone2.color)
+
+    print(smartphone3.name)
+    print(smartphone3.description)
+    print(smartphone3.price)
+    print(smartphone3.quantity)
+    print(smartphone3.efficiency)
+    print(smartphone3.model)
+    print(smartphone3.memory)
+    print(smartphone3.color)
+
+    # Создание grass1, grass2
+
+    print(grass1.name)
+    print(grass1.description)
+    print(grass1.price)
+    print(grass1.quantity)
+    print(grass1.country)
+    print(grass1.germination_period)
+    print(grass1.color)
+
+    print(grass2.name)
+    print(grass2.description)
+    print(grass2.price)
+    print(grass2.quantity)
+    print(grass2.country)
+    print(grass2.germination_period)
+    print(grass2.color)
+
+    smartphone_sum = smartphone1 + smartphone2
+    print(smartphone_sum)
+
+    grass_sum = grass1 + grass2
+    print(grass_sum)
+
+    try:
+        invalid_sum = smartphone1 + grass1
+    except TypeError:
+        print("Возникла ошибка TypeError при попытке сложения")
+    else:
+        print("Не возникла ошибка TypeError при попытке сложения")
+
+    category_smartphones = Category("Смартфоны", "Высокотехнологичные смартфоны", [smartphone1, smartphone2])
+    category_grass = Category("Газонная трава", "Различные виды газонной травы", [grass1, grass2])
+
+    category_smartphones.add_product(smartphone3)
+
+    print(category_smartphones.products)
+
+    print(Category.product_count)
+
+    try:
+        # noinspection PyTypeChecker
+        category_smartphones.add_product("Not a product")
+    except TypeError:
+        print("Возникла ошибка TypeError при добавлении не продукта")
+    else:
+        print("Не возникла ошибка TypeError при добавлении не продукта")
+
     # Создание исходных продуктов
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -198,9 +279,58 @@ if __name__ == "__main__":
 ### Ожидаемый вывод в консоли для части 1
 
 ```text
+=======Запущен Блок 16.1=======
+Samsung Galaxy S23 Ultra
+256GB, Серый цвет, 200MP камера
+180000.0
+5
+95.5
+S23 Ultra
+256
+Серый
+Iphone 15
+512GB, Gray space
+210000.0
+8
+98.2
+15
+512
+Gray space
+Xiaomi Redmi Note 11
+1024GB, Синий
+31000.0
+14
+90.3
+Note 11
+1024
+Синий
+Газонная трава
+Элитная трава для газона
+500.0
+20
+Россия
+7 дней
+Зеленый
+Газонная трава 2
+Выносливая трава
+450.0
+15
+США
+5 дней
+Темно-зеленый
+2580000.0
+16750.0
+Возникла ошибка TypeError при попытке сложения
 Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
 Iphone 15, 210000 руб. Остаток: 8 шт.
 Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
+5
+Возникла ошибка TypeError при добавлении не продукта
+=======Запущен Блок 15.1=======
+Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
+Iphone 15, 210000 руб. Остаток: 8 шт.
+Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
+=======Отработан Блок 15.1=======
 Смартфоны, количество продуктов: 27 шт.
 Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
 Iphone 15, 210000 руб. Остаток: 8 шт.
@@ -208,11 +338,13 @@ Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
 2580000.0
 1334000.0
 2114000.0
+=======Запущен Блок 15.2 (Итератор) =======
 
 --- Проверка итератора товаров ---
 Товар из итератора: Samsung Galaxy S23 Ultra, цена: 180000.0 руб.
 Товар из итератора: Iphone 15, цена: 210000.0 руб.
 Товар из итератора: Xiaomi Redmi Note 11, цена: 31000.0 руб.
+=======Отработан Блок 15.1=======
 Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
 Iphone 15, 210000 руб. Остаток: 8 шт.
 Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
@@ -220,18 +352,18 @@ Samsung Galaxy S23 Ultra, 180000 руб. Остаток: 5 шт.
 Iphone 15, 210000 руб. Остаток: 8 шт.
 Xiaomi Redmi Note 11, 31000 руб. Остаток: 14 шт.
 55" QLED 4K, 123000 руб. Остаток: 7 шт.
-4
+9
 Samsung Galaxy S23 Ultra
 256GB, Серый цвет, 200MP камера
 180000.0
 5
-Вы уверены, что хотите снизить цену с 180000.0 до 800? (y/n): n
-Действие отменено. Цена осталась прежней.
-180000.0
+Вы уверены, что хотите снизить цену с 180000.0 до 800? (y/n): y
+Цена успешно снижена.
+800
 Цена не должна быть нулевой или отрицательной
-180000.0
+800
 Цена не должна быть нулевой или отрицательной
-180000.0
+800
 ```
 
 ## Логгирование (logging)

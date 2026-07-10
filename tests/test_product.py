@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from src.models import Product
+from src.models import LawnGrass, Product, Smartphone
 
 
 def test_product_init(sample_product: Product) -> None:
@@ -149,3 +149,18 @@ def test_product_add_type_error(sample_product: Product) -> None:
         # Запись вида _ = (нижнее подчёркивание равно) в Python — это общепринятый способ сказать интерпретатору
         # и линтерам: «Мне нужно выполнить это действие, но сам результат вычисления мне не интересен и сохранять
         # его в отдельную переменную не нужно».
+
+
+def test_products_add_strict_types() -> None:
+    """Проверка, что складывать можно только объекты строго одного класса."""
+    phone1 = Smartphone("Iphone 15", "Gray", 210000.0, 2, 98.2, "15", 512, "Gray")
+    phone2 = Smartphone("Iphone 15 Pro", "Silver", 250000.0, 3, 99.1, "15 Pro", 256, "Silver")
+    grass = LawnGrass("Трава", "Описание", 500.0, 10, "РФ", "5 дней", "Зеленый")
+
+    # Сложение одинаковых классов должно работать
+    assert phone1 + phone2 == (210000.0 * 2) + (250000.0 * 3)
+
+    # Попытка сложить разные классы должна вызывать TypeError
+    with pytest.raises(TypeError):
+        # Используем # type: ignore, чтобы mypy не ругался на заведомо неверный тип в тесте
+        _ = phone1 + grass  # type: ignore
