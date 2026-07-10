@@ -69,18 +69,16 @@ class Product:
 
     def __add__(self, other: "Product") -> float:
         """Магический метод для сложения двух товаров.
-        Возвращает общую стоимость товаров на складе.
+        Разрешает сложение только строго одинаковых классов продуктов.
         """
-        # Проверяем, что объект справа — это тоже продукт
-        if not isinstance(other, Product):
-            raise TypeError("Складывать можно только объекты класса Product")
+        # Проверяем, что типы (классы) левого и правого объекта абсолютно идентичны
+        if type(self) is not type(other):
+            raise TypeError("Складывать можно только товары одного и того же класса")
 
-        # Считаем стоимость левого товара (self)
+        # Если проверка прошла, считаем полную стоимость на складе
         self_total_price = self.price * self.quantity
-        # Считаем стоимость правого товара (other)
         other_total_price = other.price * other.quantity
 
-        # Возвращаем их сумму
         return self_total_price + other_total_price
 
     # def to_list(self):

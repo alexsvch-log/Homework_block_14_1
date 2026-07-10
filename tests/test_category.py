@@ -1,3 +1,5 @@
+import pytest
+
 from src.models import Category, Product
 
 
@@ -32,3 +34,10 @@ def test_category_str(sample_category: Category) -> None:
     """Проверка строкового отображения категории с подсчетом суммы штук товаров."""
     # В sample_category лежит один товар в количестве 10 штук
     assert str(sample_category) == "Электроника, количество продуктов: 10 шт."
+
+
+def test_category_add_product_type_error(sample_category: Category) -> None:
+    """Проверка, что метод add_product выбрасывает TypeError при добавлении не-продукта."""
+    with pytest.raises(TypeError):
+        # Пытаемся добавить обычную строку вместо объекта Product
+        sample_category.add_product("Not a product")  # type: ignore

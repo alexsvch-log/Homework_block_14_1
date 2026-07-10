@@ -23,9 +23,17 @@ class Category:
         Category.product_count += len(products)
 
     def add_product(self, product: Product) -> None:
-        """Добавляет один продукт в приватный список текущей категории"""
-        self.__products.append(product)  # Добавляем в наш приватный список
-        Category.product_count += 1  # Увеличиваем счетчик всех товаров на 1
+        """Добавляет продукт в приватный список категории.
+        Выбрасывает ошибку TypeError, если передаваемый объект не является
+        экземпляром класса Product или его наследников.
+        """
+        # 1. СТРОГАЯ ПРОВЕРКА: Если это НЕ объект класса Product (или его подклассов)
+        if not isinstance(product, Product):
+            raise TypeError("Добавлять в категорию можно только объекты класса Product или его наследников")
+
+        # 2. Только если проверка прошла, добавляем в список
+        self.__products.append(product)
+        Category.product_count += 1
 
     @property
     def products(self) -> str:
