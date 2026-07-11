@@ -23,8 +23,8 @@ def test_product_init(sample_product: Product) -> None:
     # Как можно исправить:
     # Вариант 1. Проверить текстовое представление (Самый простой путь, что и делаем).
     # Вариант 2. Научить Python сравнивать объекты через __eq__.
+    # Проверяем, что repr() успешно вызывается и возвращает строку из миксина
     assert repr(sample_product) == "'Тестовый телефон', 'Описание', 1000.0, 10"
-
     # Если добавить его в src/models/product.py:python    def __eq__(self, other):
     #         if not isinstance(other, Product):
     #             return False
