@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.models import Category, LawnGrass, Product, ProductIterator, Smartphone
+from src.models import Category, LawnGrass, Order, Product, ProductIterator, Smartphone
 from src.readers import create_objects_from_json
 
 # 1. Задаем путь к папке data в корне проекта, где лежит файл с данными
@@ -165,6 +165,25 @@ if __name__ == "__main__":
     print(new_product.price)
     new_product.price = 0
     print(new_product.price)
+
+    # Блок из задания 16.2 (дополнтельный Заказ)
+    # -----------------------------------
+    # Блок проверки нового класса Заказ (Order)
+    print("\n--- Проверка создания Заказа ---")
+
+    # Создаем заказ №1 на 2 айфона (берем product2 из кода выше)
+    order1 = Order("Заказ №1", product2, 2)
+
+    # Печатаем заказ (сработает метод __str__ из Order)
+    print(order1)
+
+    # Проверяем защиту: пробуем передать в заказ обычную строку вместо продукта
+    try:
+        # noinspection PyTypeChecker
+        invalid_order = Order("Заказ-ошибка", "Просто строка", 1)  # type: ignore
+    except TypeError:
+        print("Защита сработала: нельзя оформить заказ на не-товар!")
+    # -----------------------------------
 
     # --- ЧАСТЬ 2: Загрузка данных о товарах и категориях из файла JSON и проверка счетчиков. ---
     print("--- Загрузка данных из JSON ---")

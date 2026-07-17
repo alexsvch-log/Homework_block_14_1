@@ -1,5 +1,9 @@
+from .base_product import BaseProduct  # Наш новый абстрактный дедушка
+from .base_storage import BaseStorage  # Наш новый абстрактный класс
 from .category import Category
 from .lawn_grass import LawnGrass
+from .order import Order  # Наш новый класс заказов
+from .print_mixin import PrintMixin  # Наш новый миксин для логирования
 from .product import Product
 from .product_iterator import ProductIterator
 from .smartphone import Smartphone

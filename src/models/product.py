@@ -1,7 +1,10 @@
 from typing import Any
 
+from .base_product import BaseProduct
+from .print_mixin import PrintMixin  # Импортируем наш миксин
 
-class Product:
+
+class Product(PrintMixin, BaseProduct):
     """Класс для представления конкретного товара и его характеристик."""
 
     name: str  # Наименование номенклатуры товара
@@ -10,10 +13,15 @@ class Product:
     quantity: int  # Количество единиц товара
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+        # ШАГ 1: Сначала сохраняем все свойства в объект! Это при наличии миксина
         self.name = name  # Название товара (например, "Iphone 15")
         self.description = description  # Описание товара
         self.__price = price  # Цена товара (дробное число)/ Делаем цену полностью приватной
         self.quantity = quantity  # Количество товара на складе (целое число)
+        # ШАГ 2: Только когда объект полностью наполнен данными,
+        # вызываем super() и отправляем поезд в PrintMixin! Если бы миксина не было, то эта строка
+        # стояла бы ДО определения свойств.
+        super().__init__()  # Если у BaseProduct нет своего __init__, вызываем встроенный
 
     @classmethod
     def new_product(cls, product_data: dict[str, Any], current_products: list["Product"] | None = None) -> "Product":
@@ -62,10 +70,6 @@ class Product:
     def __str__(self) -> str:  # значок показывает, что мы переписали встроенный метод Python
         # f-строка вернет красивый понятный текст вместо технической абракадабры
         return f"{self.name}, {int(self.price)} руб. Остаток: {self.quantity} шт."
-
-    def __repr__(self) -> str:
-        """Техническое отображение товара для отладки и тестов."""
-        return f"Product(name='{self.name}', price={self.price}, quantity={self.quantity})"
 
     def __add__(self, other: "Product") -> float:
         """Магический метод для сложения двух товаров.
