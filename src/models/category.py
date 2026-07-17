@@ -66,3 +66,21 @@ class Category(BaseStorage):
         кортежа (tuple), чтобы защитить приватный список __products от изменения извне.
         """
         return tuple(self.__products)
+
+    def middle_price(self) -> float:
+        """Подсчитывает и возвращает средний ценник всех товаров в категории.
+        Если в категории нет товаров, обрабатывает ZeroDivisionError и возвращает 0.
+        """
+        try:
+            total_price = 0.0
+            # В категории список объектов лежит в приватном атрибуте __products
+            for product in self.__products:
+                total_price += product.price
+
+            # Пытаемся разделить общую сумму на количество товаров в этой категории
+            average_price = total_price / len(self.__products)
+            return average_price
+
+        except ZeroDivisionError:
+            # Если список пуст, len() вернет 0, и Python прыгнет сюда. Возвращаем 0.
+            return 0.0

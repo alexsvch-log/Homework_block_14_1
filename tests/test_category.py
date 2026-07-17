@@ -41,3 +41,22 @@ def test_category_add_product_type_error(sample_category: Category) -> None:
     with pytest.raises(TypeError):
         # Пытаемся добавить обычную строку вместо объекта Product
         sample_category.add_product("Not a product")  # type: ignore
+
+
+def test_category_middle_price(sample_category: Category) -> None:
+    """Проверка корректного расчета средней цены для заполненной категории."""
+    # В sample_category из фикстуры уже лежит 1 товар с ценой 1000.0
+    # Добавим еще один товар с ценой 5000.0
+    another_product = Product("Второй телефон", "Описание", 5000.0, 5)
+    sample_category.add_product(another_product)
+
+    # Средняя цена должна быть: (1000.0 + 5000.0) / 2 = 3000.0
+    assert sample_category.middle_price() == 3000.0
+
+
+def test_category_middle_price_empty() -> None:
+    """Проверка защиты: для пустой категории метод возвращает 0.0 без ошибок."""
+    empty_category = Category("Пустая категория", "Описание", [])
+
+    # Метод должен поймать ZeroDivisionError и безопасно вернуть 0.0
+    assert empty_category.middle_price() == 0.0
