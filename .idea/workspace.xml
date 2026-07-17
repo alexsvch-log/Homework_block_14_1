@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="The version_16_2 of online store">
+    <list default="true" id="feccf213-4752-482a-8e46-a8a316bf3f2b" name="Changes" comment="The version_16_2 of online store (__repr__ was mooved in mixin)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/print_mixin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/print_mixin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_product.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,51 +44,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for tests.test_category.test_category_add_product.executor": "Run",
-    "Python tests.Python tests for tests.test_category.test_category_add_product_type_error.executor": "Run",
-    "Python tests.Python tests for tests.test_category.test_category_counters.executor": "Run",
-    "Python tests.Python tests for tests.test_category.test_category_init.executor": "Run",
-    "Python tests.Python tests for tests.test_lawn_grass.test_lawn_grass_init.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_new_product_no_duplicate.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_new_product_with_duplicate.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_init.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_new_product.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_confirm.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_reject.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_price_setter_negative.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_product_price_setter_normal.executor": "Run",
-    "Python tests.Python tests for tests.test_product.test_products_add_strict_types.executor": "Run",
-    "Python tests.Python tests for tests.test_product_iterator.test_product_iterator_stop_iteration.executor": "Run",
-    "Python tests.Python tests for tests.test_product_iterator.test_product_iterator_success.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor": "Run",
-    "Python tests.Python tests for tests.test_readers.test_reader_json_success.executor": "Run",
-    "Python tests.Python tests for tests.test_smartphone.test_smartphone_init.executor": "Run",
-    "Python.helper.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#8 on feature/homework__16__2",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/777/Desktop/Homework_block_14_1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_add_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_add_product_type_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_counters.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_category.test_category_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_lawn_grass.test_lawn_grass_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_new_product_no_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_new_product_with_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_new_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_confirm.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_decrease_reject.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_negative.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_product_price_setter_normal.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product.test_products_add_strict_types.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product_iterator.test_product_iterator_stop_iteration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_product_iterator.test_product_iterator_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_empty_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_not_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_create_objects_from_json_with_list.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_bad.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_file_empty_or_broken.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_not_dict.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_readers.test_reader_json_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_smartphone.test_smartphone_init.executor&quot;: &quot;Run&quot;,
+    &quot;Python.helper.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#8 on feature/homework__16__2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/777/Desktop/Homework_block_14_1&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\777\Desktop\Homework_block_14_1\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Homework_block_14_1" />
       <option name="ENV_FILES" value="" />
@@ -252,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783717658164</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="The version_16_2 of online store (__repr__ was mooved in mixin)">
+      <option name="closed" value="true" />
+      <created>1783799315025</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1783799315025</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,6 +278,7 @@
     <MESSAGE value="The version_15_1 of online store" />
     <MESSAGE value="The version_16_1 of online store" />
     <MESSAGE value="The version_16_2 of online store" />
-    <option name="LAST_COMMIT_MESSAGE" value="The version_16_2 of online store" />
+    <MESSAGE value="The version_16_2 of online store (__repr__ was mooved in mixin)" />
+    <option name="LAST_COMMIT_MESSAGE" value="The version_16_2 of online store (__repr__ was mooved in mixin)" />
   </component>
 </project>
