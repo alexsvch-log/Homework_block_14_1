@@ -177,3 +177,12 @@ def test_product_print_mixin(capsys: pytest.CaptureFixture) -> None:
     # Проверяем, что в консоль вывелась техническая инфо о создании товара
     assert "Product" in captured.out
     assert "Тест Миксина" in captured.out
+
+
+def test_product_init_zero_quantity_value_error() -> None:
+    """Проверка, что создание продукта с нулевым количеством вызывает ValueError."""
+    with pytest.raises(ValueError) as exc_info:
+        Product("Бракованный телефон", "Описание", 50000.0, 0)
+
+    # Проверяем, что текст ошибки совпадает с ТЗ до каждого символа
+    assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен."

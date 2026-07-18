@@ -13,6 +13,11 @@ class Product(PrintMixin, BaseProduct):
     quantity: int  # Количество единиц товара
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+        """Конструктор базового продукта с валидацией количества."""
+        # Жесткая проверка: количество не может быть нулем (или отрицательным)
+        if quantity <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен.")
+
         # ШАГ 1: Сначала сохраняем все свойства в объект! Это при наличии миксина
         self.name = name  # Название товара (например, "Iphone 15")
         self.description = description  # Описание товара
