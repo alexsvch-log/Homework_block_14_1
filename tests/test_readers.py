@@ -125,8 +125,10 @@ def test_create_objects_from_json_with_list(mocker: MockFixture, mock_json_list:
     assert result[0].name == "Смартфоны"
     assert result[1].name == "Телевизоры"
 
-    # Проверяем количество продуктов в первой категории
-    assert len(result[0].products) == 2
+    # ИСПРАВЛЕНО: Считаем количество товаров по количеству строк в геттере products
+    products_str = result[0].products
+    product_count = products_str.count("\n") + 1 if products_str else 0
+    assert product_count == 2
 
     # Проверяем итоговые глобальные счетчики классов
     assert Category.category_count == 2
@@ -147,7 +149,11 @@ def test_create_objects_from_json_with_dict(mocker: MockFixture, mock_json_dict:
     # Проверяем, что функция успешно обработала словарь
     assert len(result) == 1
     assert result[0].name == "Смартфоны"
-    assert len(result[0].products) == 1
+
+    # ИСПРАВЛЕНО: Считаем количество товаров по количеству строк в геттере products
+    products_str = result[0].products
+    product_count = products_str.count("\n") + 1 if products_str else 0
+    assert product_count == 1
 
     # Проверяем счетчики
     assert Category.category_count == 1
